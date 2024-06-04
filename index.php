@@ -28,6 +28,11 @@ try {
     <br>    
     <h1 class="title">Bienvenue chez Abstergo Industries.</h1>
 
+    <a href="./inscription.php">Inscription</a><br>
+    <a href="./connexion.php">Connexion</a><br>
+    <a href="./admin.php">Admin</a><br>
+    <a href="./profil.php">Profil</a>
+
 
 
     

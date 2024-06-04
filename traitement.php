@@ -1,5 +1,8 @@
 <?php 
 
+// * Définition des variables pour la connexion a la DB.
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -12,6 +15,8 @@ try {
     echo "Erreur : ".$e->getMessage();
 }
 
+// * Récupération des valeurs depuis la page inscription.php.
+
 
 if(isset($_POST['ok'])) {
     $login = $_POST['login'];
@@ -19,6 +24,7 @@ if(isset($_POST['ok'])) {
     $nom = $_POST['nom'];
     $mdp = $_POST['password'];
    
+// * Insertion des valeurs de inscription.php dans la DB.
 
     $requete = $bdd->prepare("INSERT INTO utilisateurs VALUES (0, :login, :prenom, :nom, :mdp)");
     $requete->execute(
@@ -30,5 +36,21 @@ if(isset($_POST['ok'])) {
         )    
     );
     $reponse = $requete->fetchAll(PDO::FETCH_ASSOC);
+    echo "Inscription réussie.";
+    $error = '';
+    $ok = '';
+    
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>test</p>
+    
+</body>
+</html>

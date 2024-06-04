@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<!-- //! Formulaire d'inscription !  -->
+
 <form method="POST" action="traitement.php">
     <label for="nom">Votre login*</label>
     <input required type="text" id="login" name="login" placeholder="Entrez votre login...">
@@ -27,6 +29,8 @@
     <input type="submit" value="M'inscrire" name="ok">
 
 </form>
+
+
 
     
 </body>
