@@ -1,0 +1,14 @@
+
+.abstergo{
+    width: 30vw;
+    
+}
+
+.logo-abstergo {
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    text-align: center;
+}
