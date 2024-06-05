@@ -1,8 +1,14 @@
 <?php 
+
+// * Inclusion du header
+include('header.php');
+
+// * Définition des variables de connexion à la BDD
 $servername = "localhost";
 $username = "root";
 $password = "";
 
+// * Connexion à la BDD
 try {
     $bdd = new PDO("mysql:host=$servername;dbname=moduleconnexion", $username, $password);
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -10,6 +16,7 @@ try {
     echo "Erreur : ".$e->getMessage();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +35,7 @@ try {
     <br>    
     <h1 class="title">Bienvenue chez Abstergo Industries.</h1>
 
-    <a href="./inscription.php">Inscription</a><br>
-    <a href="./connexion.php">Connexion</a><br>
-    <a href="./admin.php">Admin</a><br>
-    <a href="./profil.php">Profil</a>
+
 
 
 
