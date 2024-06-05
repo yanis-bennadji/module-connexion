@@ -7,10 +7,14 @@
 </head>
 <body>
 
+    
+
     <?php 
-    // * Définition des variables pour la connexion a la DB.
+    // Démarrage de la session
+    
 
 
+    // Définition des variables pour la connexion à la DB.
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -18,8 +22,6 @@
     try {
         $bdd = new PDO("mysql:host=$servername;dbname=moduleconnexion", $username, $password);
         $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //echo "Connexion réussie";
-
     } catch (PDOException $e) {
         echo "Erreur : ".$e->getMessage();
     }
@@ -30,13 +32,16 @@
         $login = $_POST['login'];
         $password = $_POST['password'];
         if ($login != "" && $password != "") {
-            // ! connexion à la BDD
+            // Connexion à la BDD
             $req = $bdd->query("SELECT * FROM utilisateurs WHERE login = '$login' AND password = '$password'");
             $rep = $req->fetch();
             if ($rep) {
+                // Connexion réussie, création des variables de session
+                $_SESSION['user_id'] = $rep['id'];
+                $_SESSION['login'] = $rep['login'];
                 echo "Connexion réussie !";
             } else {
-                $error_msg = "Email ou mot de passe incorrect !";
+                $error_msg = "Login ou mot de passe incorrect !";
             }
         } else {
             $error_msg = "Veuillez remplir tous les champs.";
@@ -44,30 +49,23 @@
     }
     ?>
 
+    <form method="POST" action="">
+        <label for="login">Login</label>
+        <input required type="text" placeholder="Entrez votre login..." id="login" name="login">
+        <br>
+        <label for="password">Mot de passe</label>
+        <input required type="password" placeholder="Entrez votre mot de passe..." id="password" name="password">
+        <br>
+        <input type="submit" name="ok" value="Se connecter">
+    </form>
 
-<form method="POST" action="">
-    <label for="">Login</label>
-    <input required type="login" placeholder="Entrez votre login..." id="login" name="login">
-    <br>
-    <label for="">Mot de passe</label>
-    <input required type="password" placeholder="Entrez votre mot de passe..." id="password" name="password">
-    <br>
-    <input type="submit" name="ok" value="Se connecter">
-</form>
+    <?php 
+    if ($error_msg){
+        echo "<p>$error_msg</p>";
+    }
+    ?>
 
-<?php 
-if ($error_msg){
-   ?>
-   <p><?php echo $error_msg; ?></p>
-   <?php
-}
-?>
+<?php include 'deconnect.php'; ?>
 
-<a href="./index.php">Index</a><br>
-<a href="./inscription.php">Inscription</a><br>
-<a href="./connexion.php">Connexion</a><br>
-<a href="./admin.php">Admin</a><br>
-<a href="./profil.php">Profil</a>
-    
 </body>
 </html>
