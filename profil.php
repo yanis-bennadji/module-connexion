@@ -50,23 +50,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Modifier le Profil</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./image/logo-animus.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 <h2>Modifier le Profil</h2>
-<form method="post" action="profil.php">
-    <label for="login">Login:</label>
-    <input type="text" id="login" name="login" value="<?php echo htmlspecialchars($user['login']); ?>" required><br>
+<form method="post" action="profil.php" class="form-container">
+    <label for="login" class="form-label">Login:</label>
+    <input type="text" id="login" name="login" value="<?php echo htmlspecialchars($user['login']); ?>" required class="form-control"><br>
     
-    <label for="prenom">Prénom:</label>
-    <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($user['prenom']); ?>" required><br>
+    <label for="prenom" class="form-label">Prénom:</label>
+    <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($user['prenom']); ?>" required class="form-control"><br>
     
-    <label for="nom">Nom:</label>
-    <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($user['nom']); ?>" required><br>
+    <label for="nom" class="form-label">Nom:</label>
+    <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($user['nom']); ?>" required class="form-control"><br>
     
-    <label for="password">Mot de passe (laisser vide si inchangé):</label>
-    <input type="password" id="password" name="password"><br>
+    <label for="password" class="form-label">Mot de passe (laisser vide si inchangé):</label>
+    <input type="password" id="password" name="password" class="form-control"><br>
     
-    <input type="submit" value="Mettre à jour">
+    <input type="submit" value="Mettre à jour" class="btn btn-dark btn-lg">
 </form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 </body>
 </html>

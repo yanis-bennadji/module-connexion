@@ -1,14 +1,286 @@
+/* ! CSS POUR LE HEADER */
 
-.abstergo{
-    width: 30vw;
-    
+/* Enlever le focus sur les boutons et liens */
+.nav-link:focus, .nav-link:active {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-.logo-abstergo {
-    display: flex;
-    justify-content: center;
+/* Style supplémentaire pour aligner les éléments */
+.navbar-nav .nav-item .nav-link {
+    padding: 0.5rem 1rem;
+    color: #000; /* Couleur du texte des liens, noire pour plus de contraste */
 }
 
-.title{
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo {
+    height: 40px; /* Ajuste la taille de l'image selon tes besoins */
+    width: auto;
+}
+
+/* Couleur de fond très claire pour la barre de navigation */
+.bg-light-custom {
+    background-color: #f8f9fa !important; /* Un gris très clair */
+}
+
+.title {
     text-align: center;
+}
+
+/* style.css */
+
+/* ! CSS DE L'INDEX */
+
+/* style.css */
+
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+.title {
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    animation: pulse 3s infinite;
+}
+
+.section {
+    margin-top: 3rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.section p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ! CSS pour l'inscription */
+
+.form-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.form-label {
+    color: #ccc;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background-color: #f8f9fa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.btn-primary {
+    background-color: #aaa;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.btn-primary:hover {
+    background-color: #aaa;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+/* ! CSS pour la connexion */
+
+.form-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    animation: slideIn 1.5s ease-in-out;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-label {
+    color: #1c1b1b;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background-color: #f8f9fa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.form-control::placeholder {
+    color: #1c1b1b;
+}
+
+.btn-primary {
+    background-color: #00adee;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #008bb5;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* ! CSS pour le profil */
+
+.form-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    animation: slideIn 1.5s ease-in-out;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-label {
+    color: #1c1b1b;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background-color: #f8f9fa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.btn-primary {
+    background-color: #00adee;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #008bb5;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

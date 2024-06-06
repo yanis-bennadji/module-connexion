@@ -9,36 +9,50 @@ if (session_status() == PHP_SESSION_NONE) {
 <head>
     <meta charset="UTF-8">
     <title>Mon Site</title>
-    <style>
-        /* Styles de base pour les boutons */
-        .header-button {
-            padding: 10px 20px;
-            margin: 5px;
-            text-decoration: none;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 5px;
-        }
-        .header-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./image/logo-animus.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <header>
-        <nav>
-            <a class="header-button" href="index.php">Accueil</a>
-            <?php if (isset($_SESSION['user_id'])): ?>
-                <a class="header-button" href="profil.php">Profil</a>
-                <a class="header-button" href="deconnect.php">Déconnexion</a>
-                <?php if ($_SESSION['user_id'] == 1):?>
-                    <a class="header-button" href="admin.php">Administration</a>
-                <?php endif; ?>
-            <?php else: ?>
-                <a class="header-button" href="connexion.php">Se connecter</a>
-                <a class="header-button" href="inscription.php">Créer un compte</a>
-            <?php endif; ?>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">
+                    <img src="./image/logo-abstergo.png" alt="Abstergo Industries" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Accueil</a>
+                        </li>
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="profil.php">Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="deconnect.php">Déconnexion</a>
+                            </li>
+                            <?php if ($_SESSION['user_id'] == 1): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="admin.php">Administration</a>
+                                </li>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="connexion.php">Connexion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="inscription.php">Créer un compte</a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

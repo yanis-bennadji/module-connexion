@@ -1,22 +1,6 @@
 <?php 
-
-// * Inclusion du header
-include('header.php');
-
-// * Définition des variables de connexion à la BDD
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-// * Connexion à la BDD
-try {
-    $bdd = new PDO("mysql:host=$servername;dbname=moduleconnexion", $username, $password);
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Erreur : ".$e->getMessage();
-}
+session_start();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,17 +13,41 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="logo-abstergo">
-        <img class="abstergo" src="./image/logo-abstergo.png" alt="">
+    <?php include('header.php'); ?>
+
+    <div class="container mt-5">
+        <h1 class="title text-center">Bienvenue chez Abstergo Industries</h1>
+        <?php
+        if (isset($_SESSION['message'])) {
+            echo '<div class="alert alert-' . $_SESSION['message_type'] . ' alert-dismissible fade show" role="alert">';
+            echo $_SESSION['message'];
+            echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+            echo '</div>';
+            unset($_SESSION['message']);
+            unset($_SESSION['message_type']);
+        }
+        ?>
+        <div class="intro mt-5">
+            <p class="lead">Fondée en 1937, Abstergo Industries est une société internationale de pointe, spécialisée dans les technologies de l'information et la recherche scientifique. Nous innovons pour un avenir meilleur, en explorant les limites de l'humanité et en transformant les découvertes en opportunités tangibles.</p>
+            <p class="lead">Notre mission est de vous fournir les outils et les connaissances nécessaires pour atteindre votre plein potentiel. Rejoignez-nous dans notre quête pour un avenir meilleur.</p>
+        </div>
+        <div class="logo mt-5 text-center">
+            <img src="./image/logo-abstergo2.png" alt="Logo Abstergo" class="logo-animation">
+        </div>
+        <br><br><br>
+        <div class="section mt-5">
+            <h2 class="section-title">Pourquoi nous rejoindre</h2>
+            <p class="lead">Chez Abstergo Industries, nous croyons en l'amélioration continue de l'humanité. Nous œuvrons pour des causes nobles, telles que l'avancement de la science, la technologie et l'éducation. En rejoignant notre équipe, vous faites partie d'une organisation qui valorise l'innovation, l'intégrité et l'engagement pour un avenir meilleur.</p>
+            <p class="lead">Nous offrons à nos employés un environnement de travail stimulant et collaboratif, des opportunités de croissance professionnelle et la chance de contribuer à des projets qui ont un impact mondial.</p>
+        </div>
+
+        <div class="section mt-5">
+            <h2 class="section-title">Projet Animus</h2>
+            <p class="lead">Le projet Animus est au cœur de notre recherche sur les mémoires génétiques. Grâce à cette technologie révolutionnaire, nous sommes capables d'explorer les souvenirs de nos ancêtres et de découvrir des vérités cachées sur notre histoire. Cette innovation ouvre des perspectives inédites dans le domaine de la science historique et de la connaissance de soi.</p>
+            <p class="lead">Rejoignez-nous dans cette aventure passionnante et participez à la découverte de notre passé pour mieux comprendre notre présent et façonner notre avenir.</p>
+        </div>
     </div>
-    <br>    
-    <h1 class="title">Bienvenue chez Abstergo Industries.</h1>
 
-
-
-
-
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></script>
 </body>
 </html>
