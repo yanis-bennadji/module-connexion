@@ -1,15 +1,16 @@
 /* ! CSS POUR LE HEADER */
+/* *Première version du module de connexion */
 
-/* Enlever le focus sur les boutons et liens */
+/* *Enlever le focus sur les boutons et liens */
 .nav-link:focus, .nav-link:active {
     outline: none !important;
     box-shadow: none !important;
 }
 
-/* Style supplémentaire pour aligner les éléments */
+/* *Style supplémentaire pour aligner les éléments */
 .navbar-nav .nav-item .nav-link {
     padding: 0.5rem 1rem;
-    color: #000; /* Couleur du texte des liens, noire pour plus de contraste */
+    color: #000; /* *Couleur du texte des liens, noire pour plus de contraste */
 }
 
 .navbar-brand {
@@ -18,24 +19,20 @@
 }
 
 .logo {
-    height: 40px; /* Ajuste la taille de l'image selon tes besoins */
+    height: 40px; /* *Ajuste la taille de l'image selon tes besoins */
     width: auto;
 }
 
-/* Couleur de fond très claire pour la barre de navigation */
+/* *Couleur de fond très claire pour la barre de navigation */
 .bg-light-custom {
-    background-color: #f8f9fa !important; /* Un gris très clair */
+    background-color: #f8f9fa !important; /* *Un gris très clair */
 }
 
 .title {
     text-align: center;
 }
 
-/* style.css */
-
 /* ! CSS DE L'INDEX */
-
-/* style.css */
 
 body {
     background-color: #1a1a1a;
@@ -46,9 +43,10 @@ body {
 .title {
     font-size: 2.5rem;
     animation: fadeIn 2s ease-in-out;
+    margin-bottom: 1rem;
 }
 
-.intro p {
+.intro p, .section p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     animation: slideIn 1.5s ease-in-out;
@@ -69,12 +67,11 @@ body {
     animation: fadeIn 2s ease-in-out;
 }
 
-.section p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    animation: slideIn 1.5s ease-in-out;
-}
+/* *Animation keyframes */
 
+/* *Animation fadeIn: 
+   *Utilisée pour créer un effet de fondu en entrée.
+   *Les éléments deviennent progressivement visibles en passant de l'opacité 0 à 1. */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -84,6 +81,9 @@ body {
     }
 }
 
+/* * Animation slideIn: 
+   *Utilisée pour créer un effet de glissement vers le haut.
+   *Les éléments se déplacent de 20px vers le haut tout en passant de l'opacité 0 à 1. */
 @keyframes slideIn {
     from {
         transform: translateY(20px);
@@ -95,6 +95,9 @@ body {
     }
 }
 
+/* *Animation pulse: 
+   *Utilisée pour créer un effet de pulsation.
+   *Les éléments augmentent et diminuent leur échelle, créant un effet de battement. */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -107,7 +110,7 @@ body {
     }
 }
 
-/* ! CSS pour l'inscription */
+/* ! CSS pour les formulaires (inscription, connexion, profil) */
 
 .form-container {
     background-color: #f8f9fa;
@@ -115,10 +118,12 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     animation: slideIn 1.5s ease-in-out;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .form-label {
-    color: #ccc;
+    color: #1c1b1b;
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -137,150 +142,70 @@ body {
 }
 
 .btn-primary {
-    background-color: #aaa;
+    background-color: #00adee;
     border: none;
     border-radius: 5px;
     padding: 0.75rem;
     font-size: 1.2rem;
+    width: 100%;
 }
 
 .btn-primary:hover {
-    background-color: #aaa;
+    background-color: #008bb5;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* ! CSS pour le tableau d'administration */
+
+.table-dark {
+    background-color: #2a2a2a;
+    color: #fff;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.table-dark th, .table-dark td {
+    border-color: #444;
+}
+
+.table-dark thead th {
+    background-color: #333;
+}
+
+.table-dark tbody tr:hover {
+    background-color: #333;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #000000;
+    animation: fadeIn 2s ease-in-out;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ! CSS pour les alertes */
+
+.alert {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.25rem 1rem;
+    color: inherit;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }
 
 .alert-success {
-    background-color: #d4edda;
     color: #155724;
+    background-color: #d4edda;
     border-color: #c3e6cb;
-}
-
-/* ! CSS pour la connexion */
-
-.form-container {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    animation: slideIn 1.5s ease-in-out;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.form-label {
-    color: #1c1b1b;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.form-control {
-    background-color: #f8f9fa;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.form-control::placeholder {
-    color: #1c1b1b;
-}
-
-.btn-primary {
-    background-color: #00adee;
-    border: none;
-    border-radius: 5px;
-    padding: 0.75rem;
-    font-size: 1.2rem;
-    width: 100%;
-}
-
-.btn-primary:hover {
-    background-color: #008bb5;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-
-/* ! CSS pour le profil */
-
-.form-container {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    animation: slideIn 1.5s ease-in-out;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.form-label {
-    color: #1c1b1b;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.form-control {
-    background-color: #f8f9fa;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.form-control::placeholder {
-    color: #aaa;
-}
-
-.btn-primary {
-    background-color: #00adee;
-    border: none;
-    border-radius: 5px;
-    padding: 0.75rem;
-    font-size: 1.2rem;
-    width: 100%;
-}
-
-.btn-primary:hover {
-    background-color: #008bb5;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
