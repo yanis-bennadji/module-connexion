@@ -2,20 +2,7 @@
 // ! Première version du module de connexion
 session_start(); // * Démarrage de la session
 
-// * Définition des variables pour la connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "moduleconnexion";
-
-try {
-    // * Connexion à la base de données avec PDO
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    // ! En cas d'erreur de connexion, afficher le message d'erreur
-    die("Erreur de connexion à la base de données: " . $e->getMessage());
-}
+require_once('_BDD.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // * Récupération des valeurs du formulaire de connexion
@@ -55,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<?php include('header.php'); // * Inclusion du header ?>
+<?php include('_Header.php'); // * Inclusion du header ?>
 
 <div class="container mt-5">
     <h1 class="title text-center">Connexion</h1>

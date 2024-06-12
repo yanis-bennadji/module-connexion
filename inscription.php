@@ -15,7 +15,7 @@ session_start(); // * Démarrage de la session
 </head>
 <body>
 
-<?php include('header.php'); // * Inclusion du header ?>
+<?php include('_Header.php'); // * Inclusion du header ?>
 
 <div class="container mt-5">
     <h1 class="title text-center">Rejoignez Abstergo Industries</h1>

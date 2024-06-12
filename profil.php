@@ -2,7 +2,7 @@
 // ! Première version du module de connexion
 //* Inclusion du Header + démarrage de la session
 session_start(); // * Démarrage de la session
-include('header.php'); // * Inclusion du header
+include('_Header.php'); // * Inclusion du header
 
 // ! Vérification que l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
@@ -10,20 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// * Définition des variables pour la connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "moduleconnexion";
-
-try {
-    // * Connexion à la base de données avec PDO
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    // ! En cas d'erreur de connexion, afficher le message d'erreur
-    die("Erreur de connexion à la base de données: " . $e->getMessage());
-}
+require_once('_BDD.php');
 
 // * Récupération des informations de l'utilisateur connecté
 $user_id = $_SESSION['user_id'];

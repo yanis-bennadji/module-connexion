@@ -1,19 +1,7 @@
 <?php 
 session_start(); // * Démarrage de la session
 
-// * Définition des variables pour la connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-try {
-    // * Connexion à la base de données avec PDO
-    $bdd = new PDO("mysql:host=$servername;dbname=moduleconnexion", $username, $password);
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    // ! En cas d'erreur de connexion, afficher le message d'erreur
-    echo "Erreur : " . $e->getMessage();
-}
+require_once('_BDD.php');
 
 if (isset($_POST['ok'])) {
     // * Récupération des valeurs du formulaire d'inscription

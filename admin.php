@@ -2,27 +2,13 @@
 // ! Première version du module de connexion
 
 session_start(); // * Démarrage de la session
-include('header.php'); // * Inclusion du header
+require_once('_BDD.php');// * Inclusion valeur de la BDD
+require_once('_Header.php'); // * Inclusion du header
 
 // ! Vérification que l'utilisateur est bien "admin"
 if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
     header('Location: index.php'); // ! Redirection vers la page d'accueil si l'utilisateur n'est pas admin
     exit();
-}
-
-// * Définition des variables pour la connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "moduleconnexion";
-
-try {
-    // * Connexion à la base de données avec PDO
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    // ! En cas d'erreur de connexion, afficher le message d'erreur
-    die("Erreur de connexion à la base de données: " . $e->getMessage());
 }
 
 // * Récupération des informations des utilisateurs
